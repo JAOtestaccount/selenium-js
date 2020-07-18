@@ -1,10 +1,12 @@
 'use strict'
 
-const {Builder} = require('selenium-webdriver')
-
 module.exports = class Page {
 
   constructor(driver) {
     this.driver = driver
+  }
+
+  async get(url) {
+    return await this.driver.get(url)
   }
 }

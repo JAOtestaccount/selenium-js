@@ -1,12 +1,12 @@
 'use strict'
 
-const {Builder, By} = require('selenium-webdriver')
+const {By} = require('selenium-webdriver')
 const Page = require('../page')
 
-module.exports = class twoInputs {
+module.exports = class twoInputs extends (Page) {
 
   constructor(driver) {
-    this.driver = driver
+    super(driver)
   }
 
   async valueA() {

@@ -4,14 +4,14 @@ const {expect} = require('chai')
 const {Builder} = require('selenium-webdriver')
 const TwoInputsPage = require('../../pages/twoInputs/twoInputs')
 
-async function startChrome() {
+async function testTwoValues() {
   // Initialize webdriver, and set default timeout for finding elements
   const driver = await new Builder().forBrowser('chrome').build()
   await driver.manage().setTimeouts({implicit: 10000})
   const twoInputsPage = new TwoInputsPage(driver)
 
   // Navigate to the two input fields page
-  await driver.get('https://www.seleniumeasy.com/test/basic-first-form-demo.html')
+  await twoInputsPage.get('https://www.seleniumeasy.com/test/basic-first-form-demo.html')
 
   try {
     
@@ -27,9 +27,9 @@ async function startChrome() {
   } catch(error) {
     // If we hit an error, let's log the error, and then quit the browser session
     await console.log('this is the error', error)
-    await driver.quit()
+    await twoInputsPage.quit()
   }
   
 }
 
-startChrome()
+testTwoValues()
